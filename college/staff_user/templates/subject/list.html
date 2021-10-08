@@ -1,0 +1,67 @@
+{% extends 'staff_home/navbar.html' %}
+
+{% block content %}
+<div class="breadcrumb-area pt-35 pb-35 bg-gray-3">
+    <div class="container">
+        <div class="breadcrumb-content text-center">
+            <ul>
+                <li>
+                    <a href="index.html">All List</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="cart-main-area pt-90 pb-100">
+    <div class="container">
+        <h3 class="cart-page-title text-center">List items</h3>
+        <div class="row">
+            <div class=" col-md-19 col-sm-19 col-12">
+                
+                {% if object_list %}
+                <form action="#">
+                    <div class="table-content table-responsive cart-table-content">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Department</th>
+                                    <th>Subject</th>
+                                    <th>Semester</th>
+                                    <th>action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                {% for s in object_list %}
+                                <tr>
+                                    <td class="product-name">{{s.name}}</td>
+                                    <td class="product-name">{{s.subject}}</td>
+                                    <td class="product-name">{{s.semester}}</td>
+                                    <td class="product-remove">
+                                        <a href="{% url 'subject_update_view' s.id %}"><i class="fa fa-pencil"></i></a>
+                                        <a href="{% url 'subject_delete_view' id=s.id %}"><i class="fa fa-times" onclick="return confirm('Are you sure')"></i></a>
+                                    </td>
+                                </tr>
+                              
+                                {% endfor %}
+                               
+                            </tbody>
+                        </table>
+                        <!--h3>Total:{{count}} subjects</h3-->
+                    </div>
+                </form>
+                {% else %}
+                <div class="container">
+                    <div class="alert alert-info">
+                        <p class="text-center" style="font-weight: bold;">Empty!</p>
+                    </div>
+                </div>
+                {% endif %}
+                    
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+    

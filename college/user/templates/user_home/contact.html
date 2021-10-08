@@ -1,0 +1,114 @@
+{% extends 'user_home/navbar.html' %}
+
+{% block content %}
+<div class="page-title parallax parallax1" style="background-position: 50% 45px;">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-title-heading">
+                    <h1 class="title">Contact Us</h1>
+                </div><!-- /.page-title-captions -->
+
+            </div><!-- /.col-md-12 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</div>
+
+
+
+<section class="flat-row pad-bottom0px">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="wrap-contactform-home1">
+                    <form  class="flat-contact-form border-radius field-large" method="POST">
+                        <div class="">      
+                            <div class="wrap-type-input" style="margin-left: 18%;">                    
+                                <div class="input-wrap name">
+                                    {{form.name}}
+                                </div>
+                                <div class="input-wrap last Subject">
+                                    {{form.subject}}
+                                </div>  
+                            </div>
+                            <div class="textarea-wrap">
+                               {{form.message}}
+                            </div>
+                        </div>
+                        {% csrf_token %}
+                        <div class="submit-wrap">
+                            <button>send</button>
+                        </div>
+                    </form><!-- /.comment-form -->   
+                </div><!-- /.wrap-contactform-home1 -->
+            </div><!-- /.col-md-12 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</section>
+
+
+
+<section class="flat-row pad-top0px pad-bottom85px">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-6">
+                <div class="flat-information-box inf1">
+                    <span class="icon">
+                        <i class="icon-Smartphone-4"></i>
+                    </span>
+                    <div class="content">
+                        <div class="title">Telephone 1</div>                        
+                        <p>+91 4862 255083 </p> 
+                    </div> 
+                </div><!-- /.flat-information-box -->
+            </div><!-- /.col-md-3 -->
+
+            <div class="col-md-3 col-sm-6 col-xs-6">
+                <div class="flat-information-box inf2">
+                    <span class="icon">
+                        <i class="icon-Smartphone-4"></i>
+                    </span>
+                    <div class="content">
+                        <div class="title">Telephone 2</div>                        
+                        <p>+61 3 8376 6284</p> 
+                    </div> 
+                </div><!-- /.flat-information-box -->
+            </div><!-- /.col-md-3 -->
+
+            <div class="col-md-3 col-sm-6 col-xs-6">
+                <div class="flat-information-box inf3">
+                    <span class="icon">
+                        <i class="icon-Email"></i>
+                    </span>
+                    <div class="content">
+                        <div class="title">Email</div>                        
+                        <p>gptcmuttom@yahoo.co.in </p> 
+                    </div> 
+                </div><!-- /.flat-information-box -->
+            </div><!-- /.col-md-3 -->
+
+            <div class="col-md-3 col-sm-6 col-xs-6">
+                <div class="flat-information-box inf4">
+                    <span class="icon">
+                        <i class="icon-Edit-Map"></i>
+                    </span>
+                    <div class="content">
+                        <div class="title">Address</div>                        
+                        <p>GOVT POLYTECHNIC COLLEGE MUTTOM Muttom Post, Thodupuzha, Idukki Dist., Kerala. PIN 685587</p> 
+                    </div> 
+                </div><!-- /.flat-information-box -->
+            </div><!-- /.col-md-3 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</section>
+
+ <h2 style="margin-left: 2%; text-decoration: underline;">Google map location</h2><br>
+<div class="row-fluid">
+    <div class="embed-responsive embed-responsive-16by9">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3931.0820575557477!2d76.73577631483218!3d9.8434753784104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b07c674407e1329%3A0xe7920dbab7c9883b!2sGovernment%20Polytechnic%20College%2C%20Muttom!5e0!3m2!1sen!2sin!4v1627790474369!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe> 
+    </div>
+</div><br>
+
+
+{% endblock content %}

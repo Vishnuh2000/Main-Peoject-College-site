@@ -1,0 +1,69 @@
+{% extends 'admin_section/navbar.html' %}
+
+{% block content %}
+<div class="breadcrumb-area pt-35 pb-35 bg-gray-3">
+    <div class="container">
+        <div class="breadcrumb-content text-center">
+            <ul>
+                <li class="active"><h2>STUDENT LOG</h2></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="cart-main-area pt-90 pb-100">
+    <div class="container">
+        <h2 class="cart-page-title">staff list</h2>
+        <div class="a"><a href="{% url 'staff_register' %}" style="font-size: 20px;">+ Add staff</a></div>
+         
+         {% if staff %}
+         <div class="row">
+            <div>
+                <form action="#">
+                    <div class="table-content table-responsive cart-table-content">
+                       
+                       
+                       <table style="width:1200px">
+                        <thead>
+                            <tr>
+                                <th>staff id</th>
+                                <th>Name</th>
+                                <th>Email id</th>
+                                <th>action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            {% for i in staff %}
+                            <tr>
+                                <td>{{ i.id }}</td>
+                                <td>{{ i.first_name }} {{ i.last_name }}</td>
+                                <td>{{ i.email }}</td>
+                                <td><a href="{% url 'remove_staff' id=i.id %}" onclick="return confirm('Are you sure?')"><i class="fa fa-times"></i> </a></td>
+                            </tr>
+                        
+                                
+                            {% endfor %}
+                                
+                            
+                        </tbody>
+                    </table>
+                           
+                    </div>
+                </div>
+        </div>
+        {% else %}
+          <div class="alert alert-info">
+              <p class="text-center" style="font-weight: bold;">Empty</p>
+          </div>
+         {% endif %}
+             
+        </div>
+</div>
+<style>
+    div.a{
+        text-align: right;
+    }
+</style>
+
+{% endblock content %}
+    

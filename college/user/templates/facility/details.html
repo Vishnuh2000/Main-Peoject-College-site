@@ -1,0 +1,53 @@
+{% extends 'user_home/navbar.html' %}
+
+{% block content %}
+<div class="page-title parallax parallax1" style="background-position: 50% 20px;">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">                    
+                <div class="page-title-heading">
+                    <h1 class="title">{{ department.Name }}</h1>
+                </div><!-- /.page-title-captions --> 
+            </div><!-- /.col-md-12 -->  
+        </div><!-- /.row -->  
+    </div><!-- /.container -->                      
+</div>
+
+<section class="main-content blog-single blog-single-sidebar">
+    <div class="post-wrap">        
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <article class="entry">
+                        <div class="feature-post">
+                            <img src="{{ facilities.image.url }}" alt="image">
+                        </div><!-- /.feature-post -->
+                        <div class="main-post">
+                            <h2 class="title-post"><a>{{ facilities.name }}</a></h2>
+                            <div class="meta-post clearfix">
+                                <ul>    
+                                </ul>
+                            </div><!-- /.meta-post -->
+                            <div class="desc">
+                                <p>description</p>
+                            </div>      
+                            <div class="entry-post">
+                                <p>{{ facilities.Description|safe }}</p>
+                            </div><!-- /.entry-post -->
+                        </div><!-- /.main-post -->
+                    </article><!-- /.entry -->
+            </div><!-- /.row -->
+        </div><!-- /.container --> 
+    </div><!-- /.post-wrap -->           
+</section>
+<style>
+    p{
+       color: black;
+       font-family: calibri;
+       font-size: 18px;
+    }
+</style>
+
+{% endblock content %}
+    

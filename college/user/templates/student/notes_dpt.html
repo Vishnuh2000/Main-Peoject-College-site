@@ -1,0 +1,52 @@
+{% extends 'user_home/navbar.html' %}
+{% load static %}
+{% block content %}
+<div class="page-title parallax parallax1" style="background-position: 50% 45px;">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-title-heading">
+                    <h1 class="title">Notes/Question papper and answer</h1>
+                </div><!-- /.page-title-captions -->
+
+            </div><!-- /.col-md-12 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</div>
+
+
+{% if department %}
+<section class="flat-row">
+    <div class="course-single">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10" style="margin-left: 9%;">
+                    <div class="course-entry">
+
+                        <div class="curriculum-section">
+                            <ul class="curriculum">
+                                <li class="section">
+                                    <h6 class="section-title">Select your department</h6>
+                                    <ul class="section-content">
+                                       
+                                       {% for d in department %}
+                                       <li class="course-lesson">
+                                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                        <a href="" class="lesson-title">{{d.Name}}</a>
+                                        <a href="{% url 'student_subject' d.id %}" class="lesson-preview">Notes/Question papper</a>
+                                    </li>
+                                       {% endfor %}
+                                           
+                                    </ul>
+                        </div><!-- /.curriculum-section -->
+                    </div><!-- /.course-entry -->
+                </div><!-- /.col-md-8 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </div><!-- /.course-detail -->
+</section>
+{% endif %}
+
+
+{% endblock content %}

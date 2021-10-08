@@ -1,0 +1,83 @@
+{% extends 'user_home/navbar.html' %}
+{% load static %}
+{% block content %}
+<!-- Slider -->
+<div class="tp-banner-container">
+    <div class="tp-banner" >
+        <ul>
+            <li data-transition="random-static" data-slotamount="7" data-masterspeed="1000" data-saveperformance="on">
+                <img src="{% static 'assets/images/slides/gptc1.jpg' %}" alt="slider-image" />
+
+                <div class="tp-caption sfb title-slide color-white style1" data-x="5" data-y="254" data-speed="1000" data-start="1000" data-easing="Power3.easeInOut">Welcome To GOVT.<br>Polytechnic college muttom</div>
+                <div class="tp-caption sft center color-white" data-x="5" data-y="528" data-speed="1000" data-start="1500" data-easing="Power3.easeInOut">
+                    <div class="flat-button-slide"><a href="{% url 'departments' %}">View Our courses</a></div>
+                </div>
+            </li>
+            
+
+            <li data-transition="random-static" data-slotamount="7" data-masterspeed="1000" data-saveperformance="on">
+                <img src="{% static 'assets/images/slides/gptc3.jpg' %}" alt="slider-image" />
+
+                <div class="tp-caption sfb title-slide color-white style1" data-x="5" data-y="254" data-speed="1000" data-start="1000" data-easing="Power3.easeInOut">Meet new friends,<br>and study with experts</div>
+
+                <div class="tp-caption sft center color-white" data-x="5" data-y="528" data-speed="1000" data-start="1500" data-easing="Power3.easeInOut">
+                    <div class="flat-button-slide"><a href="{% url 'facilities' %}">View Our Facilities</a></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+
+{% if notice %}
+<section class="flat-row pad-top95px">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="title-section style1">
+                    <h1 class="title"><u>Notice Board</u></h1>
+                    <div class="icon">
+                       
+                    </div>
+                </div><!-- /.title-section -->
+            </div><!-- /.col-md-12 -->
+        </div><!-- /.row -->
+
+        <div class="row">
+            <div class="flat-divider d55px"></div>
+        </div>
+
+        <div class="row">
+            
+            {% for n in notice %}
+            <div class="col-md-12">
+                <div class="flat-team-carosuel-style2" data-item="1" data-nav="true" data-dots="false" data-auto="True">
+                    <div class="flat-team style2">
+                        <div class="profile">
+                            <p class="name"><strong>{{n.title}}</strong></p>
+                            <!--p class="position">English Teacher</p-->
+                        </div>
+                        <div class="descritption">
+                            <blockquote>{{n.description|safe}}</blockquote>
+                        </div> 
+                                             
+                    </div><!-- /.flat-team -->
+
+                    <div class="flat-team style2">
+                                           
+                    </div><!-- /.flat-team -->
+                    
+                </div><!-- /.flat-team-carosuel -->
+            </div><!-- /.col-md-12 -->
+            {% endfor %}
+                
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</section><!-- /.flat-row -->
+{% endif %}
+    
+
+
+{% endblock content %}
+    

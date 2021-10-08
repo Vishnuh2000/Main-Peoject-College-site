@@ -1,0 +1,104 @@
+{% extends 'user_home/navbar.html' %}
+
+{% block content %}
+<div class="page-title parallax parallax1" style="background-position: 50% 20px;">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">                    
+                <div class="page-title-heading">
+                    <h1 class="title">{{ department.Name }}</h1>
+                </div><!-- /.page-title-captions --> 
+            </div><!-- /.col-md-12 -->  
+        </div><!-- /.row -->  
+    </div><!-- /.container -->                      
+</div>
+
+<section class="main-content blog-single">        
+    <div class="post-wrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <article class="entry">
+                        <div class="feature-post">
+                            <img src="{{department.image.url}}" alt="image" width="100%">
+                        </div><!-- /.feature-post -->
+                        <div class="main-post">
+                            <div class="row">
+                                <div class="col-md-10 col-md-offset-1">
+                                    <h2 class="title-post"><a href="#">{{department.Name}}</a></h2>
+                                    <div class="meta-post clearfix">
+                                    </div><!-- /.meta-post -->
+                                    <div class="desc">
+                                        <p>descripsion</p>
+                                    </div>      
+                                    <div class="entry-post">
+                                       <p>{{department.Description|safe}}</p>
+                                    </div><!-- /.entry-post -->
+                                </div><!-- /.col-md-8 -->
+                            </div><!-- /.row -->
+                        </div><!-- /.main-post -->
+                    </article><!-- /.entry -->
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+
+
+{% if teachers %}
+<div class="section-comment">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+              
+              {% for t in teachers %}
+              <div class="author-post">                            
+                <h4 class="title"></h4>
+                <article class="author">
+                    <div class="author-avatar">
+                        <img src="{{t.T_image.url}}" alt="image" width="130px">
+                    </div>
+                    <div class="position">
+                        <div class="author-meta">
+                            <h4><a href="#">{{t.name}}</a></h4>
+                            <p>{{t.position}}</p>
+                           
+                        </div>
+                    </div>
+                    <ul class="flat-socials">  
+                                                           
+                    </ul>            
+                    <div class="author-detail">
+                        <p class="author-body">
+                            <span class="fa fa-mobile"  style="font-size: 25px; margin-left: 4px;"></span>  : {{t.Phone}} <br>
+                            <span class="fa fa-envelope" style="font-size: 20px;"></span> : {{t.Email}}
+                        </p>                 
+                    </div>
+                </article><!-- /.comment -->                                
+            </div><!-- /.author-post -->
+              {% endfor %}
+                  
+            </div>
+        </div><!-- /.row -->                                               
+    </div><!-- /.container -->
+</div><!-- /.section-comment -->
+</div><!-- /.post-wrap --> 
+{% endif %}
+               
+</section>
+
+<style>
+    p{
+       color: black;
+       font-family: calibri;
+       font-size: 18px;
+    }
+    .title2{
+    color: #697ea4;
+    text-transform: capitalize;
+    padding-bottom: 21px;
+    text-decoration: underline;
+    }
+</style>
+
+{% endblock content %}
+    

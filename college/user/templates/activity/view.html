@@ -1,0 +1,48 @@
+{% extends 'user_home/navbar.html' %}
+{% block content %}
+<div class="page-title parallax parallax1" style="background-position: 50% 45px;">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">                    
+                <div class="page-title-heading">
+                    <h1 class="title">Activities</h1>
+                </div><!-- /.page-title-captions --> 
+                
+            </div><!-- /.col-md-12 -->  
+        </div><!-- /.row -->  
+    </div><!-- /.container -->                      
+</div>
+
+
+<section class="flat-row pad-top50px pad-bottom90px">
+    <div class="container">
+        <div class="row">
+           
+           {% for a in activity %}
+           <div class="col-md-3 col-sm-6 col-xs-6">
+            <div class="flat-courses">
+                <div class="courses-thumbnail">
+                    <a href="{% url 'activity_details' a.id %}"><img src="{{ a.activity_image.url }}" alt="image"></a>
+                    <a class="courses-viewmore" href="{% url 'activity_details' a.id %}">View more</a>
+                </div>
+                <div class="courses-content">
+                    <a href="{% url 'activity_details' a.id %}"><h6 class="courses-topic" >{{ a.name }}</h6></a>
+                </div>
+            </div><!-- /.flat-courses -->
+        </div><!-- /.col-md-3 -->
+           {% endfor %}
+               
+         
+        </div><!-- /.row -->
+
+        <div class="row">
+            <div class="flat-divider d40px"></div>
+        </div>
+    </div><!-- /.container -->
+</section>
+    
+    
+
+{% endblock content %}
+    

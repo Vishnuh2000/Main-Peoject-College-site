@@ -1,0 +1,129 @@
+{% extends 'user_home/navbar.html' %}
+{% load static %}
+{% block content %}
+<div class="page-title parallax parallax1" style="background-position: 50% 45px;">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-title-heading">
+                    <h1 class="title">{{course.Name}}</h1>
+                </div><!-- /.page-title-captions -->
+
+            </div><!-- /.col-md-12 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</div>
+
+<section class="flat-row">
+    <div class="course-single">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10" style="margin-left: 9%;">
+                    <div class="course-entry">
+
+                        <div class="curriculum-section">
+                            <ul class="curriculum">
+                                <li class="section">
+                                    <h6 class="section-title">semester - 1</h6>
+                                    <ul class="section-content">
+                                       
+                                       {% for s in subject1 %}
+                                       <li class="course-lesson">
+                                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                        <a href="#" class="lesson-title">{{s.subject}}</a>
+                                        <a href="{% url 'student_file' s.id %}" class="lesson-preview">Files</a>
+                                    </li>
+                                       {% endfor %}
+                                           
+                                    </ul>
+                        </div><!-- /.curriculum-section -->
+                        <div class="curriculum-section">
+                            <ul class="curriculum">
+                                <li class="section">
+                                    <h6 class="section-title">semester - 2</h6>
+                                    <ul class="section-content">
+                                       
+                                       {% for s in subject2 %}
+                                       <li class="course-lesson">
+                                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                        <a href="#" class="lesson-title">{{s.subject}}</a>
+                                        <a href="{% url 'student_file' s.id %}" class="lesson-preview">Files</a>
+                                    </li>
+                                       {% endfor %}
+                                           
+                                    </ul>
+                        </div><!-- /.curriculum-section -->
+                        <div class="curriculum-section">
+                            <ul class="curriculum">
+                                <li class="section">
+                                    <h6 class="section-title">semester - 3</h6>
+                                    <ul class="section-content">
+                                       
+                                       {% for s in subject3 %}
+                                       <li class="course-lesson">
+                                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                        <a href="#" class="lesson-title">{{s.subject}}</a>
+                                        <a href="{% url 'student_file' s.id %}" class="lesson-preview">Files</a>
+                                    </li>
+                                       {% endfor %}
+                                           
+                                    </ul>
+                        </div><!-- /.curriculum-section -->
+                        <div class="curriculum-section">
+                            <ul class="curriculum">
+                                <li class="section">
+                                    <h6 class="section-title">semester - 4</h6>
+                                    <ul class="section-content">
+                                       
+                                       {% for s in subject4 %}
+                                       <li class="course-lesson">
+                                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                        <a href="#" class="lesson-title">{{s.subject}}</a>
+                                        <a href="{% url 'student_file' s.id %}" class="lesson-preview">Files</a>
+                                    </li>
+                                       {% endfor %}
+                                           
+                                    </ul>
+                        </div><!-- /.curriculum-section -->
+                        <div class="curriculum-section">
+                            <ul class="curriculum">
+                                <li class="section">
+                                    <h6 class="section-title">semester - 5</h6>
+                                    <ul class="section-content">
+                                       
+                                       {% for s in subject5 %}
+                                       <li class="course-lesson">
+                                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                        <a href="#" class="lesson-title">{{s.subject}}</a>
+                                        <a href="{% url 'student_file' s.id %}" class="lesson-preview">Files</a>
+                                    </li>
+                                       {% endfor %}
+                                           
+                                    </ul>
+                        </div><!-- /.curriculum-section -->
+                        <div class="curriculum-section">
+                            <ul class="curriculum">
+                                <li class="section">
+                                    <h6 class="section-title">semester - 6</h6>
+                                    <ul class="section-content">
+                                       
+                                       {% for s in subject6 %}
+                                       <li class="course-lesson">
+                                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                        <a href="#" class="lesson-title">{{s.subject}}</a>
+                                        <a href="{% url 'student_file' s.id %}" class="lesson-preview">Files</a>
+                                    </li>
+                                       {% endfor %}
+                                           
+                                    </ul>
+                        </div><!-- /.curriculum-section -->
+                    </div><!-- /.course-entry -->
+                </div><!-- /.col-md-8 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </div><!-- /.course-detail -->
+</section>
+
+
+{% endblock content %}

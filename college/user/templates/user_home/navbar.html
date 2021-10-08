@@ -1,0 +1,310 @@
+{% load static %}
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"><!--<![endif]-->
+<head>
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+    <title>Government Polytechnic College Muttom</title>
+
+    <meta name="author" content="themesflat.com">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/stylesheets/bootstrap.css' %}" >
+
+    <!-- Theme Style -->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/stylesheets/style.css' %}">
+
+    <!-- Responsive -->
+   <!--  <link rel="stylesheet" type="text/css" href="stylesheets/responsive.css"> -->
+
+    <!-- Colors -->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/stylesheets/colors/color1.css' %}" id="colors">
+	
+	<!-- Animation Style -->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/stylesheets/animate.css' %}">
+
+    <!-- Favicon and touch icons  -->
+    <link href="{% static 'assets/icon/apple-touch-icon-48-precomposed.png' %}" rel="apple-touch-icon-precomposed" sizes="48x48">
+    <link href="{% static 'assets/icon/apple-touch-icon-32-precomposed.png' %}" rel="apple-touch-icon-precomposed">
+    <link href="{% static 'assets/icon/Untitled-1.png' %}" rel="shortcut icon">
+
+    <!--[if lt IE 9]>
+        <script src="javascript/html5shiv.js"></script>
+        <script src="javascript/respond.min.js"></script>
+    <![endif]-->
+</head>                                 
+<body class="header-sticky">   
+    <!-- <section class="loading-overlay">
+        <div class="Loading-Page">
+            <h2 class="loader">Loading...</h2>
+        </div>
+    </section>  -->
+    
+    <!-- Boxed -->
+    <div class="boxed">
+
+    <div class="top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="language">        
+                        <ul class="flat-information">
+                            <li class="email"><a href="gptcmuttom@yahoo.co.in" style="font-weight: bold;
+                                ">gptcmuttom@yahoo.co.in</a></li>
+                            <li class="phone"><a href="#" style="font-weight: bold";>+91 4862 255083</a></li>
+                        </ul>
+                    </div><!-- /.language -->
+                </div><!-- /.col-md-6 -->   
+                <div class="col-md-6">
+                    <div class="top-navigator">
+                        <ul>
+                            
+                            {% if  user.is_authenticated %}
+                                {% if user.is_superuser %}
+                                 <li><a href="{% url 'adminhome' %}" class="btn btn-primary"> <p style="color: aliceblue; font-weight: bold; font-size: 14px;"
+                                    >Admin Dashbord</p></a></li>
+                                 {% endif %}    
+                            {% endif %} 
+                               
+                             
+                             {% if user.is_authenticated %}
+                                 
+                                 {% if user.is_staff %}
+                                   
+                                   {% if not user.is_superuser %}
+                                   <li><a href="{% url 'staff_home' %}" class="btn btn-info"> <p style="color: aliceblue; font-weight: bold; font-size: 14px;"
+                                    >Staff Dashbord</p></a></li>
+                                   {% endif %}
+                                       
+                                 {% endif %}
+                                     
+                             {% endif %}
+
+                             {% if user.is_authenticated %}
+                                 
+                             {% if user.is_student or user.is_staff or user.is_superuser %}
+                               
+                           
+                                <li><a href="{% url 'student_home' %}" class="btn btn-success"> <p style="color: aliceblue; font-weight: bold; font-size: 14px;"
+                                    >Notes</p></a></li>
+                             
+                             {% endif %}
+                                 
+                             {% endif %}
+                                 
+
+                            {% if not user.is_authenticated %}
+                                     
+                            <li><a href="{% url 'loginpage' %}" class="btn btn-danger">
+                                <p style="color: aliceblue; font-weight: bold; font-size: 14px;"
+                                >Login/register</p></a></li>
+
+                            {% endif %}
+                          
+
+                            {% if  user.is_authenticated %}
+                                     
+                            <li><a href="{% url 'logout' %}" class="btn btn-danger">
+                                <p style="color: aliceblue; font-weight: bold; font-size: 14px;"
+                                >Logout</p></a></li>
+                                
+                            {% endif %}
+
+                                
+                        </ul>
+                    </div><!-- /.top-navigator --> 
+                </div><!-- /.col-md-6 -->              
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </div><!-- /.top -->
+
+    <!-- Header -->            
+    <header id="header" class="header clearfix"> 
+        <div class="header-wrap clearfix">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2">
+                        <div id="logo" class="logo">
+                            <a href=" {% url 'homepage' %}" rel="home">
+                                <img src="{% static 'assets/images/Untitled-1.png' %}" alt="image" width="65px">
+                            </a>
+                        </div><!-- /.logo -->
+                        <div class="btn-menu">
+                            <span></span>
+                        </div><!-- //mobile menu button -->
+                    </div><!-- /.col-md-2 -->
+                    
+                    {% if user.is_authenticated %}
+                    <div class="col-md-10">
+                        <div class="nav-wrap">
+                            
+                            <nav id="mainnav" class="mainnav">
+                                <ul class="menu"> 
+                                    <li><a href="#">Pages</a>
+                                        <ul class="submenu right-sub-menu"> 
+                                            <li class="submenu"><a href="{% url 'aboutpage' %}">About Us</a>
+                                            </li>
+                                            <li class="submenu"><a href="{% url 'contact' %}">Contact Us</a>              
+                                            </li>
+                                        </ul><!-- /.submenu -->
+                                    </li>
+                                       
+                                  
+                                    <li><a href="{% url 'departments' %}">Departments</a>
+                                    </li> 
+                                    <li><a href="{% url 'activities' %}">Activity</a>
+                                    </li> 
+                                                                                                                       
+                                    <li><a href="{% url 'facilities' %}">facilities</a>
+                                    </li>
+                                </ul><!-- /.menu -->
+                            </nav><!-- /.mainnav -->  
+                        </div><!-- /.nav-wrap -->
+                    </div><!-- /.col-md-10 -->
+                    {% endif %}
+                        
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+            
+            {% if user.is_authenticated %}
+            <div class="show-search">
+                <a href="#"><i class="fa fa-search"></i></a>                
+            </div><!-- /.show-search -->
+            {% endif %}
+                
+            <div class="nav-search">
+                <div class="container"> 
+                    <div class="col-md-12">
+                       <div class="top-search" id="s1">
+                            <aside id="search-4" class="widget widget_search">
+                                <form role="search" method="get" class="search-form" action="">
+                                    <label>
+                                        <input type="search" class="search-field" placeholder="Search …" value="" name="s" title="Search for:">
+                                    </label>
+                                    <input type="submit" class="search-submit" value="Search">
+                                </form>
+                            </aside>                    
+                        </div><!-- /.top-search -->
+                    </div>
+                </div>
+            </div><!-- /.nav-search -->             
+        </div><!-- /.header-inner --> 
+    </header><!-- /.header -->
+
+
+{% block content %}
+    
+{% endblock content %}
+
+    <!-- Footer -->
+    <footer class="footer">        
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="widget widget-text">
+                        <img src="{% static 'assets/images/gptc_logo1.png' %}" alt="logo-footer" width="500px">
+                    </div>
+                </div><!-- /.col-md-12 -->    
+            </div><!-- /.row -->    <br>
+
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="sidebar-inner-footer">
+                        <div class="widget widget-infomation">
+                            <ul class="flat-information">
+                                <li class="email"><a href="gptcmuttom@yahoo.co.in">gptcmuttom@yahoo.co.in</a></li>  
+                                <li class="phone"><a href="61383766284">+91 4862 255083</a></li>
+                                <li class="address">GOVT POLYTECHNIC COLLEGE MUTTOM
+                                    Muttom Post, Thodupuzha,
+                                    Idukki Dist., Kerala. PIN 685587</li>
+                                
+                            </ul>
+                        </div>
+                    </div><!-- /.sidebar-inner-footer -->    
+                </div><!-- /.col-md-12 -->    
+            </div><!-- /.row -->    
+
+            <div class="row"> 
+                <div class="footer-widgets">
+                    <div class="col-md-4">  
+                        <div class="widget widget_categories">
+                            <h4 class="widget-title">Links</h4>
+                            <ul>
+                                <li><a href="#">ourses</a></li>
+                                <li><a href="#">Events</a></li>
+                                <li><a href="#">FAQs</a></li>
+                                <li><a href="#">Maintenance</a></li>
+                            </ul>
+                        </div><!-- /.widget -->      
+                    </div><!-- /.col-md-2 --> 
+
+                    <div class="col-md-4">  
+                        <div class="widget widget_categories">
+                            <h4 class="widget-title">SUPPORT</h4>
+                            <ul>
+                                <li><a href="#">Documentation</a></li>
+                                <li><a href="#">Forums</a></li>
+                                <li><a href="#">Language Packs</a></li>
+                                <li><a href="#">Release Status</a></li>
+                            </ul>
+                        </div><!-- /.widget -->      
+                    </div><!-- /.col-md-2 --> 
+
+                    <div class="col-md-4">  
+                        <div class="widget widget_categories">
+                            <h4 class="widget-title">Our School</h4>
+                            <ul>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#">Contact</a></li>
+                                <li><a href="#">Become a Teacher</a></li>
+                                <li><a href="#">Our Teacher</a></li>
+                            </ul>
+                        </div><!-- /.widget -->      
+                    </div><!-- /.col-md-2 --> 
+
+                </div><!-- /.footer-widgets -->
+            </div><!-- /.row -->    
+        </div><!-- /.container -->
+    </footer>
+
+
+    <!-- Go Top -->
+    <a class="go-top">
+        <i class="fa fa-angle-up"></i>
+    </a>   
+
+    </div>
+    
+    <!-- Javascript -->
+    <script type="text/javascript" src="{% static 'assets/javascript/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/javascript/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/javascript/jquery.easing.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/javascript/imagesloaded.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/javascript/jquery.isotope.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/javascript/owl.carousel.js' %}"></script> 
+    <script type="text/javascript" src="{% static 'assets/javascript/jquery.mb.YTPlayer.js' %}"></script>    
+    <script type="text/javascript" src="{% static 'assets/javascript/jquery-waypoints.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/javascript/jquery.flexslider-min.js' %}"></script> 
+    <script type="text/javascript" src="{% static 'assets/javascript/jquery.cookie.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/javascript/jquery.fitvids.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/javascript/jquery-validate.js' %}"></script> 
+    <script type="text/javascript" src="{% static 'assets/javascript/jquery.magnific-popup.min.js' %}"></script> 
+    <script type="text/javascript" src="{% static 'assets/javascript/parallax.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/javascript/jquery.countdown.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/javascript/jquery.sticky.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/javascript/smoothscroll.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/javascript/main.js' %}"></script>
+
+    <!-- Revolution Slider -->
+    <script type="text/javascript" src="{% static 'assets/javascript/jquery.themepunch.tools.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/javascript/jquery.themepunch.revolution.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/javascript/slider.js' %}"></script>
+</body>
+</html>
+    

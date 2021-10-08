@@ -1,0 +1,46 @@
+{% extends 'staff_home/navbar.html' %}
+{% load static %}
+{% block content %}
+<div class="breadcrumb-area pt-35 pb-35 bg-gray-3">
+  <div class="container">
+      <div class="breadcrumb-content text-center">
+          <ul>
+              <li>
+                  <a href="index.html" class="text-danger" style="font-weight: bold;"> Dashboard</a>
+              </li>
+          </ul>
+      </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="container mt-5">
+      <div class="row">
+          <div class="col-md-6">
+              <div class="title478">
+                  <h1 style="font-size: 3.6rem;">Welcome staff
+                   <span style="color: #ED2A26; font-size: 30px;" class="mt-2">{{user.email}} <br> 
+                    </span></h1>
+                  <img class="line-title" src="{% static 'assets/images/line.svg' %}" alt="">
+              </div>
+          </div>
+          <div class="col-md-6">
+              <div class="story125">
+                  <img src="{% static 'img/blog/admin-1.png' %}" class="img-fluid" alt="">
+              </div>
+          </div>
+
+      </div>
+  </div>
+</div>
+<style>
+  h1{
+    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    line-height: 1.28571429em;
+    margin: calc(2rem - .14285714em) 0 1rem;
+    font-weight: 700;
+
+  }
+</style>
+
+{% endblock content %}
+    
