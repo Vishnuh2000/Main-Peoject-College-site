@@ -3,24 +3,29 @@
 {% block content %}
 <!-- Slider -->
 <div class="tp-banner-container">
-    <div class="tp-banner" >
+    <div class="tp-banner">
         <ul>
             <li data-transition="random-static" data-slotamount="7" data-masterspeed="1000" data-saveperformance="on">
                 <img src="{% static 'assets/images/slides/gptc1.jpg' %}" alt="slider-image" />
 
-                <div class="tp-caption sfb title-slide color-white style1" data-x="5" data-y="254" data-speed="1000" data-start="1000" data-easing="Power3.easeInOut">Welcome To GOVT.<br>Polytechnic college muttom</div>
-                <div class="tp-caption sft center color-white" data-x="5" data-y="528" data-speed="1000" data-start="1500" data-easing="Power3.easeInOut">
+                <div class="tp-caption sfb title-slide color-white style1" data-x="5" data-y="254" data-speed="1000"
+                    data-start="1000" data-easing="Power3.easeInOut">Welcome To GOVT.<br>Polytechnic college muttom
+                </div>
+                <div class="tp-caption sft center color-white" data-x="5" data-y="528" data-speed="1000"
+                    data-start="1500" data-easing="Power3.easeInOut">
                     <div class="flat-button-slide"><a href="{% url 'departments' %}">View Our courses</a></div>
                 </div>
             </li>
-            
+
 
             <li data-transition="random-static" data-slotamount="7" data-masterspeed="1000" data-saveperformance="on">
                 <img src="{% static 'assets/images/slides/gptc3.jpg' %}" alt="slider-image" />
 
-                <div class="tp-caption sfb title-slide color-white style1" data-x="5" data-y="254" data-speed="1000" data-start="1000" data-easing="Power3.easeInOut">Meet new friends,<br>and study with experts</div>
+                <div class="tp-caption sfb title-slide color-white style1" data-x="5" data-y="254" data-speed="1000"
+                    data-start="1000" data-easing="Power3.easeInOut">Meet new friends,<br>and study with experts</div>
 
-                <div class="tp-caption sft center color-white" data-x="5" data-y="528" data-speed="1000" data-start="1500" data-easing="Power3.easeInOut">
+                <div class="tp-caption sft center color-white" data-x="5" data-y="528" data-speed="1000"
+                    data-start="1500" data-easing="Power3.easeInOut">
                     <div class="flat-button-slide"><a href="{% url 'facilities' %}">View Our Facilities</a></div>
                 </div>
             </li>
@@ -38,46 +43,86 @@
                 <div class="title-section style1">
                     <h1 class="title"><u>Notice Board</u></h1>
                     <div class="icon">
-                       
+
                     </div>
                 </div><!-- /.title-section -->
             </div><!-- /.col-md-12 -->
         </div><!-- /.row -->
+        <section class="flat-row">
+            <div class="course-single">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-10" style="margin-left: 9%;">
+                            <div class="course-entry">
 
-        <div class="row">
-            <div class="flat-divider d55px"></div>
-        </div>
+                                <div class="curriculum-section">
+                                    <ul class="curriculum">
+                                        <li class="section">
+                                            <h6 class="section-title">Notification</h6>
+                                            <ul class="section-content">
 
-        <div class="row">
-            
-            {% for n in notice %}
-            <div class="col-md-12">
-                <div class="flat-team-carosuel-style2" data-item="1" data-nav="true" data-dots="false" data-auto="True">
-                    <div class="flat-team style2">
-                        <div class="profile">
-                            <p class="name"><strong>{{n.title}}</strong></p>
-                            <!--p class="position">English Teacher</p-->
-                        </div>
-                        <div class="descritption">
-                            <blockquote>{{n.description|safe}}</blockquote>
-                        </div> 
-                                             
-                    </div><!-- /.flat-team -->
+                                                {% for n in notice %}
+                                                <li class="course-lesson" style="padding: 5%;">
+                                                    <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                                    <a href="" class="lesson-title" id="titlen">{{n.title}}</a>
+                                                    <!-- Button trigger modal -->
+                                                    <button type="button" class="btn btn-primary" data-toggle="modal"
+                                                        data-target="#exampleModalLong">
+                                                        View
+                                                    </button>
 
-                    <div class="flat-team style2">
-                                           
-                    </div><!-- /.flat-team -->
-                    
-                </div><!-- /.flat-team-carosuel -->
-            </div><!-- /.col-md-12 -->
-            {% endfor %}
-                
-        </div><!-- /.row -->
-    </div><!-- /.container -->
-</section><!-- /.flat-row -->
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="exampleModalLong" tabindex="-2"
+                                                        role="dialog" aria-labelledby="exampleModalLongTitle"
+                                                        aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLongTitle"
+                                                                        style="color: black;">{{n.title}}</h5>
+                                                                    <button type="button" class="close"
+                                                                        data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    {{n.description|safe}}
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-dismiss="modal">Close</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    </a>
+                                                    <a href="{{n.pdf.url}}" class="btn btn-primary" download=""><i class="fa fa-download" aria-hidden="true" style="color: white;"></i></a>
+                                                </li>
+                                                {% endfor %}
+
+                                            </ul>
+                                </div><!-- /.curriculum-section -->
+                            </div><!-- /.course-entry -->
+                        </div><!-- /.col-md-8 -->
+                    </div><!-- /.row -->
+                </div><!-- /.container -->
+            </div><!-- /.course-detail -->
+        </section>
+
+    </div>
+</section>
 {% endif %}
-    
+
+
+<style>
+    #titlen {
+
+        color: black;
+        font-weight: bold;
+
+
+    }
+</style>
 
 
 {% endblock content %}
-    

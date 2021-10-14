@@ -20,6 +20,12 @@ def Home(request):
     return render(request , 'user_home/home.html' , context)
 
 
+def NoticeDetails(request,id):
+    context={}
+    context['notice_details'] = get_object_or_404(MainAnnouncements , pk=id)
+    return render(request , 'user_home/notice.html' , context)
+
+
 @login_required
 def About(request):
     return render(request , "user_home/about.html")
@@ -91,11 +97,6 @@ def ContactCreateView(request):
             return render( request , 'user_home/contact.html' , context )
 
    
-
-
-  
-
-
 
 def error_404(request ,exception):
     data = {}

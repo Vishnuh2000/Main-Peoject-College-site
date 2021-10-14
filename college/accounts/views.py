@@ -31,6 +31,7 @@ def user_Login(request):
                 return redirect('staff_home')
             
             elif user:
+                messages.success(request , 'Login Successfully')
                 return redirect('homepage')
 
         else:
@@ -53,6 +54,7 @@ def user_Register(request):
             user.set_password(rf.cleaned_data.get('password'))
             user.is_student=0
             user.save()
+            
             return redirect('loginpage')
         else:
             print(rf.errors)

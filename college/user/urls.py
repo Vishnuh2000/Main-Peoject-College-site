@@ -28,7 +28,9 @@ urlpatterns = [
 
     path('student/subjects/<int:id>/', student_subject , name='student_subject' ),
 
-    path('student/notes/download/<int:id>/' , studentFile_download , name='student_file')
+    path('student/notes/download/<int:id>/' , studentFile_download , name='student_file'),
+
+    path('notice/bord/<id>/' , NoticeDetails , name='notice_details'),
 
 
 ]
