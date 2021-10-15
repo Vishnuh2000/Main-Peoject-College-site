@@ -22,7 +22,7 @@ def Home(request):
 
 def NoticeDetails(request,id):
     context={}
-    context['notice_details'] = get_object_or_404(MainAnnouncements , pk=id)
+    context['notice'] = get_object_or_404(MainAnnouncements , pk=id)
     return render(request , 'user_home/notice.html' , context)
 
 
@@ -127,6 +127,8 @@ def studentFile_download(request,id):
     context['subject'] = get_object_or_404(Subject,id=id)
     context['notes'] = Notes.objects.filter(sub=context['subject'])
     return render(request , 'student/download.html' , context)
+
+
 
 
 

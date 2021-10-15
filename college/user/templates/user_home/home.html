@@ -65,39 +65,9 @@
                                                 <li class="course-lesson" style="padding: 5%;">
                                                     <i class="fa fa-play-circle-o" aria-hidden="true"></i>
                                                     <a href="" class="lesson-title" id="titlen">{{n.title}}</a>
-                                                    <!-- Button trigger modal -->
-                                                    <button type="button" class="btn btn-primary" data-toggle="modal"
-                                                        data-target="#exampleModalLong">
-                                                        View
-                                                    </button>
-
-                                                    <!-- Modal -->
-                                                    <div class="modal fade" id="exampleModalLong" tabindex="-2"
-                                                        role="dialog" aria-labelledby="exampleModalLongTitle"
-                                                        aria-hidden="true">
-                                                        <div class="modal-dialog" role="document">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h5 class="modal-title" id="exampleModalLongTitle"
-                                                                        style="color: black;">{{n.title}}</h5>
-                                                                    <button type="button" class="close"
-                                                                        data-dismiss="modal" aria-label="Close">
-                                                                        <span aria-hidden="true">&times;</span>
-                                                                    </button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    {{n.description|safe}}
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary"
-                                                                        data-dismiss="modal">Close</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    </a>
+                                                    <a href="{{n.pdf.url}}" class="btn btn-danger">View</a>
                                                     <a href="{{n.pdf.url}}" class="btn btn-primary" download=""><i class="fa fa-download" aria-hidden="true" style="color: white;"></i></a>
-                                                </li>
+
                                                 {% endfor %}
 
                                             </ul>
@@ -112,8 +82,6 @@
     </div>
 </section>
 {% endif %}
-
-
 <style>
     #titlen {
 
